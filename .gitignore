@@ -1,0 +1,4 @@
+__pycache__/
+.qodo
+token.txt
+*.json
