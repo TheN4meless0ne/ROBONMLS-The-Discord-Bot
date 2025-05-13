@@ -1,16 +1,15 @@
 import discord
 from discord.ext import commands
 from time import sleep
-from utils import tokens
 from commands import commands_list
 from commands_mod import mod_commands
 from twitch_notif import notify_when_live
+from utils import DISCORD_TOKEN
+
 
 intents = discord.Intents.default()
 intents.message_content = True  # Må aktiveres under Privileged Gateway Intents på https://discord.com/developers/applications/
 bot = commands.Bot(command_prefix="/", intents=intents)
-
-DISCORD_TOKEN = tokens["DISCORD_TOKEN"]
 
 
 # Registrerer kommandene i commands.py og legger dem til i botten.

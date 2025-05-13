@@ -2,7 +2,7 @@ import discord
 from discord import app_commands
 from utils import (
     STREAMER,
-    SOCIALS_CHANNEL_ID,
+    SOCIALS_CHANNEL_ID
 )
 
 # /socials

@@ -1,9 +1,9 @@
 import discord
 from discord import app_commands
 from utils import (
-    save_twitch_usernames,
     TWITCH_USERNAMES,
-    save_notif_settings,
+    save_twitch_usernames,
+    save_notif_settings
 )
 
 # /addtwitch (Moderator only)

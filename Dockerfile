@@ -5,6 +5,8 @@ WORKDIR /app
 
 # Copy the requirements file
 COPY requirements.txt .
+# Copy the .env file (ensure this file is present in the same directory as the Dockerfile)
+COPY .env .
 
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
