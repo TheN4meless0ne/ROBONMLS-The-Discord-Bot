@@ -5,10 +5,7 @@ services:
     build: .
     volumes:
       - ./src:/app/src
+      - ./token.txt:/app/token.txt
       - ./twitch_usernames.json:/app/twitch_usernames.json  # Mount the JSON file as a volume
-    environment:
-      - DISCORD_TOKEN=${DISCORD_TOKEN}
-      - TWITCH_CLIENT_ID=${TWITCH_CLIENT_ID}
-      - TWITCH_CLIENT_SECRET=${TWITCH_CLIENT_SECRET}
     command: python src/main.py
     restart: always

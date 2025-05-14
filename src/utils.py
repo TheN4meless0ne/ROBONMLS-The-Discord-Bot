@@ -1,12 +1,18 @@
 import json
 import aiohttp
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+# Get tokens from a file
+def load_tokens():
+    tokens = {}
+    with open("token.txt", "r") as file:
+        for line in file:
+            key, value = line.strip().split("=")
+            tokens[key] = value
+    return tokens
 
-# Hent Twitch-brukernavn fra en fil
-# Hvis filen ikke finnes, returner en liste med standard brukernavn
+# Load Twitch usernames from a file
+# If the file doesn't exist, create it with the default streamer value
 def load_twitch_usernames():
     try:
         with open("twitch_usernames.json", "r") as file:
@@ -72,10 +78,12 @@ def load_notif_settings(guild_id: int):
     return channel_id, role_id
 
 # variables and constants
+tokens = load_tokens()
 TWITCH_USERNAMES = load_twitch_usernames()
 STREAMER = "nmlsval"
+# The channel ID for the #links channel
 SOCIALS_CHANNEL_ID = 1357714657573470430
 
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-TWITCH_CLIENT_SECRET = os.getenv("TWITCH_CLIENT_SECRET")
-TWITCH_CLIENT_ID = os.getenv("TWITCH_CLIENT_ID")
+TWITCH_CLIENT_SECRET = tokens["TWITCH_CLIENT_SECRET"]
+TWITCH_CLIENT_ID = tokens["TWITCH_CLIENT_ID"]
+DISCORD_TOKEN = tokens["DISCORD_TOKEN"]
